@@ -28,7 +28,7 @@
                 <mxCell id="42" value="addresses" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;" vertex="1" parent="1">
                     <mxGeometry x="740" y="290" width="320" height="150" as="geometry"/>
                 </mxCell>
-                <mxCell id="43" value="+purchase         :references  null: false, foreign_key: true&#10;+postal_code     :string null: false&#10;+prefecture        :string  null: false&#10;+city                   :string  null: false&#10;+house_number:string  null: false&#10;+building_name :string &#10;+phone_number:string null: false&#10;&#10;      &#10;" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;" vertex="1" parent="42">
+                <mxCell id="43" value="+purchase         :references  null: false, foreign_key: true&#10;+postal_code     :string null: false&#10;+prefecture_id    :integer  null: false&#10;+city                   :string  null: false&#10;+house_number:string  null: false&#10;+building_name :string &#10;+phone_number:string null: false&#10;&#10;      &#10;" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;" vertex="1" parent="42">
                     <mxGeometry y="30" width="320" height="120" as="geometry"/>
                 </mxCell>
                 <mxCell id="47" value="" style="edgeStyle=entityRelationEdgeStyle;fontSize=12;html=1;endArrow=ERoneToMany;" edge="1" parent="1">
