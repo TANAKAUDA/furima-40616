@@ -10,4 +10,7 @@ class User < ApplicationRecord
   validates :birth_date, presence: true
   validates :password, format: { with: /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i, message: "should include at least one letter and one digit" }
   validates :password, format: { without: /[^\x01-\x7E]+/, message: "cannot include full-width characters" }
+
+  has_many :purchases
+  has_many :items
 end

@@ -7,6 +7,7 @@ class Item < ApplicationRecord
   belongs_to_active_hash :prefecture
   belongs_to_active_hash :shipping_days
   has_one_attached :image
+  has_one :purchase
 
   validates :item_name, presence: { message: "can't be blank" }
   validates :description, presence: { message: "can't be blank" }
