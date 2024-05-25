@@ -13,7 +13,14 @@ RSpec.describe PurchaseForm, type: :model do
       it '全ての情報が正しく入力されている場合、購入できる' do
         expect(@purchase_form).to be_valid
       end
+
+      it '建物名が空でも購入できる' do
+        @purchase_form.building_name = ''
+        expect(@purchase_form).to be_valid
+      end
+
     end
+
 
     context '購入がうまくいかないとき' do
       it '郵便番号が空では購入できない' do
@@ -25,13 +32,19 @@ RSpec.describe PurchaseForm, type: :model do
       it '郵便番号が正しいフォーマットでないと購入できない' do
         @purchase_form.postal_code = '1234567'
         @purchase_form.valid?
-        expect(@purchase_form.errors.full_messages).to include("Postal code is invalid")
+        expect(@purchase_form.errors.full_messages).to include("Postal code is invalid. Include hyphen(-)")
       end
 
       it '都道府県が空では購入できない' do
         @purchase_form.prefecture_id = nil
         @purchase_form.valid?
         expect(@purchase_form.errors.full_messages).to include("Prefecture can't be blank")
+      end
+
+      it '都道府県が"---"（id=1）では購入できない' do
+        @purchase_form.prefecture_id = 1
+        @purchase_form.valid?
+        expect(@purchase_form.errors.full_messages).to include("Prefecture can't be '---'")
       end
 
       it '市区町村が空では購入できない' do
@@ -74,6 +87,18 @@ RSpec.describe PurchaseForm, type: :model do
         @purchase_form.token = ''
         @purchase_form.valid?
         expect(@purchase_form.errors.full_messages).to include("Token can't be blank")
+      end
+
+      it 'ユーザーが空では購入できない' do
+        @purchase_form.user_id = nil
+        @purchase_form.valid?
+        expect(@purchase_form.errors.full_messages).to include("User can't be blank")
+      end
+
+      it '商品が空では購入できない' do
+        @purchase_form.item_id = nil
+        @purchase_form.valid?
+        expect(@purchase_form.errors.full_messages).to include("Item can't be blank")
       end
     end
   end

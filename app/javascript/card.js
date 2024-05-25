@@ -15,7 +15,6 @@ document.addEventListener('DOMContentLoaded', () => {
       e.preventDefault();
       payjp.createToken(numberElement).then((response) => {
         if (response.error) {
-          console.log(response.error.message);
         } else {
           const token = response.id;
           const tokenObj = `<input value=${token} name='token' type="hidden">`;
