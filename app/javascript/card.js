@@ -15,6 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
       e.preventDefault();
       payjp.createToken(numberElement).then((response) => {
         if (response.error) {
+          form.submit();
         } else {
           const token = response.id;
           const tokenObj = `<input value=${token} name='token' type="hidden">`;
@@ -26,6 +27,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
           form.submit();
         }
+      }).catch(() => {
+        form.submit();
       });
     });
   }

@@ -32,7 +32,7 @@ RSpec.describe PurchaseForm, type: :model do
       it '郵便番号が正しいフォーマットでないと購入できない' do
         @purchase_form.postal_code = '1234567'
         @purchase_form.valid?
-        expect(@purchase_form.errors.full_messages).to include("Postal code is invalid. Include hyphen(-)")
+        expect(@purchase_form.errors.full_messages).to include("Postal code is invalid. Include hyphen(-))
       end
 
       it '都道府県が空では購入できない' do
